@@ -17,6 +17,10 @@
     <Grid Margin="{StaticResource MediumLeftRightMargin}">
         <StackPanel
             x:Name="ContentArea">
+            <TextBlock Text="LeonceReconnait"
+                       Style="{ThemeResource SubtitleTextBlockStyle}" />
+            
+
             <TextBlock Text="LeonceEcrit"
                        Style="{ThemeResource SubtitleTextBlockStyle}" />
 

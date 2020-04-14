@@ -148,9 +148,11 @@
     <Compile Include="Helpers\EnumToBooleanConverter.cs" />
     <Compile Include="Helpers\NavHelper.cs" />
     <Compile Include="Helpers\SettingsStorageExtensions.cs" />
+    <Compile Include="Leonce\LMemoryLibrary.cs" />
     <Compile Include="Leonce\LPlayLetter.cs" />
     <Compile Include="Leonce\LAppSettings.cs" />
-    <Compile Include="Models\ImageFileInfo.cs" />
+    <Compile Include="Models\LImageMotReadMatching.cs" />
+    <Compile Include="Models\LImagesMots.cs" />
     <Compile Include="Leonce\MyCaseType.cs" />
     <Compile Include="Leonce\MyTextBox.cs" />
     <Compile Include="Services\ActivationService.cs" />
@@ -160,8 +162,8 @@
     <Compile Include="Views\LeonceEcritPage.xaml.cs">
       <DependentUpon>LeonceEcritPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\MainPage.xaml.cs">
-      <DependentUpon>MainPage.xaml</DependentUpon>
+    <Compile Include="Views\LeonceMemoryPage.xaml.cs">
+      <DependentUpon>LeonceMemoryPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SettingsPage.xaml.cs">
       <DependentUpon>SettingsPage.xaml</DependentUpon>
@@ -204,7 +206,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\MainPage.xaml">
+    <Page Include="Views\LeonceMemoryPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -230,6 +232,7 @@
     <Compile Include="Helpers\ResourceExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\correct.png" />
     <Content Include="Assets\img\img_bain.jpg" />
     <Content Include="Assets\img\img_ballon.jpg" />
     <Content Include="Assets\img\img_biberon.png" />
@@ -301,6 +304,7 @@
     <Content Include="Assets\img\img_velo.png" />
     <Content Include="Assets\img\img_voiture.jpg" />
     <Content Include="Assets\img\imp_pompier.png" />
+    <Content Include="Assets\incorrect.png" />
     <Content Include="Assets\LargeTile.scale-100.png" />
     <Content Include="Assets\LargeTile.scale-125.png" />
     <Content Include="Assets\LargeTile.scale-150.png" />
@@ -311,6 +315,7 @@
     <Content Include="Assets\SmallTile.scale-150.png" />
     <Content Include="Assets\SmallTile.scale-200.png" />
     <Content Include="Assets\SmallTile.scale-400.png" />
+    <Content Include="Assets\sounds\applause10.mp3" />
     <Content Include="Assets\SplashScreen.scale-100.png" />
     <Content Include="Assets\SplashScreen.scale-125.png" />
     <Content Include="Assets\SplashScreen.scale-150.png" />

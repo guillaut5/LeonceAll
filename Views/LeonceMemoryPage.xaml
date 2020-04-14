@@ -1,0 +1,122 @@
+﻿<Page x:Class="LeonceAll.Views.LeonceMemoryPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:local="using:LeonceAll.Leonce"
+      xmlns:data="using:LeonceAll.Models"
+      Style="{StaticResource PageStyle}"
+      mc:Ignorable="d">
+    <Grid x:Name="ContentArea"
+          Margin="{StaticResource MediumLeftRightMargin}">
+        <Grid Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <!--
+                The SystemControlPageBackgroundChromeLowBrush background represents where you should place your content. 
+                Place your content here.
+            -->
+            <StackPanel Grid.Row="0"
+                        Orientation="Horizontal"
+                        Margin="0"
+                        HorizontalAlignment="Left">
+                <TextBlock  x:Name="LUINotation"
+                            Text="{x:Bind GameProgress, Mode=OneWay}"
+                            Width="244"
+                            VerticalAlignment="center"
+                            TextAlignment="Center"
+                            FontSize="18" />
+                <TextBlock  x:Name="LUIScoreActuel"
+                            TextAlignment="Center"
+                            Text="{x:Bind ScoreActuel, Mode=OneWay}"
+                            Width="274"
+                            VerticalAlignment="center"
+                            FontSize="18"
+                            Margin="30,0,0,0" />
+            </StackPanel>
+            <StackPanel Grid.Row="0"
+                            Orientation="Horizontal"
+                            Margin="0"
+                            HorizontalAlignment="Right">
+                    <Button AutomationProperties.Name="reinit"
+                            Click="Button_Click_ReinitGame"
+                            Width="244">
+                        <StackPanel Orientation="Horizontal">
+                            <SymbolIcon Symbol="Refresh" />
+                            <TextBlock FontSize="18"
+                                       Margin="10">Changer</TextBlock>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+
+
+                <StackPanel Grid.Row="1"
+                            Orientation="Vertical"
+                            Margin="20">
+                    <Image Name="ImageMot"
+                           Height="400"
+                           Width="600"
+                           Stretch="UniformToFill"
+                           Source="{x:Bind imageSelected.imgSrc,  Mode=OneWay}"
+                           HorizontalAlignment="Center"
+                           Margin="20,20,20,20" />
+
+
+                    <GridView Name="WordMatchingGrid"
+                              ItemsSource="{x:Bind wordCandidates}"
+                              IsItemClickEnabled="True"
+                              HorizontalAlignment="Center">
+                        <GridView.ItemTemplate>
+                            <DataTemplate x:DataType="data:LImageMotReadMatching">
+                                <StackPanel Orientation="Horizontal">
+                                    <Button Height="200"
+                                            Width="350"
+                                            Tapped="textBoxClicked"
+                                            FontWeight="Bold"
+                                            Content="{x:Bind word,  Mode=OneWay}"
+                                            FontSize="52"
+                                            Padding="30,30,30,30"
+                                            Visibility="{x:Bind textVisibility ,  Mode=OneWay}"
+                                            Click="textBoxClicked">
+                                    </Button>
+                                    <Image  Source="{x:Bind image}"
+                                            Height="200"
+                                            Width="350"
+                                            Visibility="{x:Bind imageVisibility,  Mode=OneWay}">
+                                    </Image>
+
+
+                                </StackPanel>
+                                <!--<Grid Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}"
+                                  HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"
+                                  Padding="0,30,0,0">
+                          -->
+                                <!--<TextBox 
+                                        Height="200"
+                                        Width="300"
+                                        Padding="4,-3,4,-3"
+                                        FontWeight="Bold"
+                                       Text="{x:Bind word,  Mode=OneWay}"
+                                        FontSize="65"
+                                    HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Margin="30,30,30,30">
+
+                                </TextBox>
+                            -->
+                                <!-- {x:Bind word}" /> -->
+
+                                <!--</Grid> -->
+                            </DataTemplate>
+                        </GridView.ItemTemplate>
+                    </GridView>
+                </StackPanel>
+
+        </Grid>
+
+    </Grid>
+</Page>

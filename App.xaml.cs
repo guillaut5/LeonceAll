@@ -40,7 +40,8 @@ namespace LeonceAll
 
         private ActivationService CreateActivationService()
         {
-            return new ActivationService(this, typeof(Views.MainPage), new Lazy<UIElement>(CreateShell));
+            return new ActivationService(this, typeof(Views.
+                LeonceMemoryPage), new Lazy<UIElement>(CreateShell));
         }
 
         private UIElement CreateShell()

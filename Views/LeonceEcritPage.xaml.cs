@@ -22,8 +22,8 @@ namespace LeonceAll.Views
     public sealed partial class LeonceEcritPage : Page, INotifyPropertyChanged
     {
 
-        public ObservableCollection<ImageFileInfo> Images => images;
-        private readonly ObservableCollection<ImageFileInfo> images = new ObservableCollection<ImageFileInfo>();
+        public ObservableCollection<LImagesMots> Images => images;
+        private readonly ObservableCollection<LImagesMots> images = new ObservableCollection<LImagesMots>();
         private ILogger log;
         private LAppSettings localSetting_m;
         private LPlayLetter letterPlayer_m;
@@ -33,7 +33,7 @@ namespace LeonceAll.Views
         {
             this.InitializeComponent();
 
-            log = LogManagerFactory.DefaultLogManager.GetLogger<MainPage>();
+            log = LogManagerFactory.DefaultLogManager.GetLogger<LeonceEcritPage>();
             localSetting_m = new LAppSettings();
             letterPlayer_m = new LPlayLetter();
             log.Trace("This is a trace message.");
@@ -83,7 +83,7 @@ namespace LeonceAll.Views
             Images.Shuffle();
         }
 
-        public async static Task<ImageFileInfo> LoadImageInfo(StorageFile file)
+        public async static Task<LImagesMots> LoadImageInfo(StorageFile file)
         {
             // Open a stream for the selected file.
             // The 'using' block ensures the stream is disposed
@@ -95,7 +95,7 @@ namespace LeonceAll.Views
                 bitmapImage.SetSource(fileStream);
 
                 var properties = await file.Properties.GetImagePropertiesAsync();
-                ImageFileInfo info = new ImageFileInfo(
+                LImagesMots info = new LImagesMots(
                     properties, file, bitmapImage, file.Name,
                     file.DisplayName, file.DisplayType);
 
@@ -107,7 +107,7 @@ namespace LeonceAll.Views
         private async void ButtonValid_Click(object sender, RoutedEventArgs e)
         {
             string inputString = myInputTextBox.Text;
-            ImageFileInfo selectedImage = Images[flipView.SelectedIndex];
+            LImagesMots selectedImage = Images[flipView.SelectedIndex];
 
             string[] lines = inputString.Split('\r');
             string voiceString = inputString;
