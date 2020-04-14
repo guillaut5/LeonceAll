@@ -3,8 +3,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-using LeonceAll.Core.Models;
-using LeonceAll.Core.Services;
+using LeonceAll.Models;
 
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
@@ -13,7 +12,7 @@ namespace LeonceAll.Views
 {
     public sealed partial class TelerikDataGridPage : Page, INotifyPropertyChanged
     {
-        public ObservableCollection<SampleOrder> Source { get; } = new ObservableCollection<SampleOrder>();
+        public ObservableCollection<LImageMotReadMatching> Source { get; } = new ObservableCollection<LImageMotReadMatching>();
 
         // TODO WTS: Change the grid as appropriate to your app, adjust the column definitions on TelerikDataGridPage.xaml.
         // For help see http://docs.telerik.com/windows-universal/controls/raddatagrid/gettingstarted
@@ -29,12 +28,12 @@ namespace LeonceAll.Views
             Source.Clear();
 
             // TODO WTS: Replace this with your actual data
-            var data = await SampleDataService.GetGridDataAsync();
+        /*    var data = null;
 
             foreach (var item in data)
             {
                 Source.Add(item);
-            }
+            } */
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

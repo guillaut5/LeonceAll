@@ -1,8 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Threading.Tasks;
-
-using LeonceAll.Core.Helpers;
+using LeonceAll.Helpers;
 
 using Windows.Storage;
 using Windows.Storage.Streams;
