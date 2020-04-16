@@ -1,12 +1,8 @@
-﻿using System;
-using System.ComponentModel;
-using System.IO;
+﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Threading.Tasks;
 
 
 using Windows.Storage;
-using Windows.Storage.Streams;
 
 namespace LeonceAll.Leonce
 {

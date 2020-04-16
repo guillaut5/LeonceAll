@@ -1,20 +1,17 @@
-﻿using System;
+﻿using LeonceAll.Leonce;
+using LeonceAll.Models;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
-using LeonceAll.Leonce;
-using LeonceAll.Models;
 using Windows.ApplicationModel;
-using Windows.Media.Core;
-using Windows.Media.Playback;
 using Windows.Storage;
 using Windows.Storage.Streams;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
@@ -25,10 +22,14 @@ namespace LeonceAll.Views
 
 
         private int gameCount = 0;
+#pragma warning disable CS0414 // Le champ 'LeonceMemoryPage.gameTotal' est assigné, mais sa valeur n'est jamais utilisée
         private int gameTotal = 10;
+#pragma warning restore CS0414 // Le champ 'LeonceMemoryPage.gameTotal' est assigné, mais sa valeur n'est jamais utilisée
         private int score = 0;
         private int imageWordsChoices = 3;
         private MediaElement player;
+        private Boolean isEvaluating = false;
+        private LPlayLetter letterPlayer_m;
 
 
         private LImageMotReadMatching _imageSelected;
@@ -74,6 +75,8 @@ namespace LeonceAll.Views
         {
 
             player = new MediaElement();
+            letterPlayer_m = new LPlayLetter();
+
             InitializeComponent();
         }
 
@@ -84,7 +87,7 @@ namespace LeonceAll.Views
             selectOneImage();
         }
 
-        private void selectOneImage()
+        private async void selectOneImage()
         {
             Images.Shuffle();
             LImagesMots tmpSeclected = Images[0];
@@ -99,6 +102,8 @@ namespace LeonceAll.Views
                 wordCandidates.Add(falseWordSelected);
             }
             wordCandidates.Shuffle();
+            await letterPlayer_m.speachAsync(imageSelected.word);
+
 
 
 
@@ -207,28 +212,36 @@ namespace LeonceAll.Views
 
         private async Task setMotChoisiSelected(LImageMotReadMatching motChoisi)
         {
-            gameCount++;
-
-            motChoisi.setSelected();
-
-            if (!motChoisi.isCorrect)
+            if (isEvaluating == false)
             {
-                ElementSoundPlayer.State = ElementSoundPlayerState.On;
-                ElementSoundPlayer.Play(ElementSoundKind.GoBack);
-                NotifyPropertyChanged("GameProgress");
-                await Task.Delay(1000);
-                ElementSoundPlayer.State = ElementSoundPlayerState.Off;
+                isEvaluating = true;
+                gameCount++;
 
+                motChoisi.setSelected();
 
-            }
-            else
-            {
-                score++;
-                NotifyPropertyChanged("ScoreActuel");
-                NotifyPropertyChanged("GameProgress");
+                if (!motChoisi.isCorrect)
+                {
+                    ElementSoundPlayer.State = ElementSoundPlayerState.On;
+                    ElementSoundPlayer.Play(ElementSoundKind.GoBack);
+                    NotifyPropertyChanged("GameProgress");
+                    await letterPlayer_m.speachAsync(motChoisi.word);
 
-                await playApplauseAsync();
-                selectOneImage();
+                    await Task.Delay(500);
+                    ElementSoundPlayer.State = ElementSoundPlayerState.Off;
+                    motChoisi.setUnSelected();
+
+                }
+                else
+                {
+                    score++;
+                    NotifyPropertyChanged("ScoreActuel");
+                    NotifyPropertyChanged("GameProgress");
+
+                    await playApplauseAsync();
+                    await Task.Delay(1000);
+                    selectOneImage();
+                }
+                isEvaluating = false;
             }
         }
 

@@ -1,7 +1,6 @@
-﻿using System;
-
-using LeonceAll.Services;
+﻿using LeonceAll.Services;
 using MetroLog;
+using System;
 using Windows.ApplicationModel.Activation;
 using Windows.UI.Xaml;
 

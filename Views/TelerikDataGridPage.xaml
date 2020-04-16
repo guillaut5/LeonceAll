@@ -6,32 +6,12 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Style="{StaticResource PageStyle}"
     xmlns:tg="using:Telerik.UI.Xaml.Controls.Grid"
-    xmlns:model="using:LeonceAll.Core.Models"
     mc:Ignorable="d">
     <Grid x:Name="ContentArea" Margin="{StaticResource MediumLeftRightMargin}">
-        <!-- <Grid
-            Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
-            <tg:RadDataGrid ColumnDataOperationsMode="Flyout" x:Name="grid" ItemsSource="{x:Bind Source, Mode=OneWay}" AutoGenerateColumns="False" >
-                <tg:RadDataGrid.Columns>
-                    <tg:DataGridTextColumn PropertyName="OrderID" />
-                    <tg:DataGridDateColumn PropertyName="OrderDate" />
-                    <tg:DataGridTextColumn PropertyName="Company" />
-                    <tg:DataGridTextColumn PropertyName="ShipTo" />
-                    <tg:DataGridNumericalColumn PropertyName="OrderTotal" />
-                    <tg:DataGridTextColumn PropertyName="Status" />
-                    <tg:DataGridTemplateColumn Header="Symbol">
-                        <tg:DataGridTemplateColumn.CellContentTemplate>
-                            <DataTemplate x:DataType="model:SampleOrder">
-                                <FontIcon
-                                      HorizontalAlignment="Left"
-                                      Margin="{StaticResource MediumLeftRightMargin}"
-                                      FontFamily="{ThemeResource SymbolThemeFontFamily}"
-                                      Glyph="{x:Bind Symbol}" />
-                            </DataTemplate>
-                        </tg:DataGridTemplateColumn.CellContentTemplate>
-                    </tg:DataGridTemplateColumn>
-                </tg:RadDataGrid.Columns>
-            </tg:RadDataGrid>
-        </Grid>  -->
+        <Grid>
+            <TextBlock Text="dsds"></TextBlock>
+
+        </Grid>
+        
     </Grid>
 </Page>

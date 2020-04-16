@@ -1,10 +1,7 @@
-﻿using System;
+﻿using LeonceAll.Models;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-
-using LeonceAll.Models;
-
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
@@ -22,18 +19,20 @@ namespace LeonceAll.Views
             InitializeComponent();
         }
 
+#pragma warning disable CS1998 // Cette méthode async n'a pas d'opérateur 'await' et elle s'exécutera de façon synchrone. Utilisez l'opérateur 'await' pour attendre les appels d'API non bloquants ou 'await Task.Run(…)' pour effectuer un travail utilisant le processeur sur un thread d'arrière-plan.
         protected override async void OnNavigatedTo(NavigationEventArgs e)
+#pragma warning restore CS1998 // Cette méthode async n'a pas d'opérateur 'await' et elle s'exécutera de façon synchrone. Utilisez l'opérateur 'await' pour attendre les appels d'API non bloquants ou 'await Task.Run(…)' pour effectuer un travail utilisant le processeur sur un thread d'arrière-plan.
         {
             base.OnNavigatedTo(e);
             Source.Clear();
 
             // TODO WTS: Replace this with your actual data
-        /*    var data = null;
+            /*    var data = null;
 
-            foreach (var item in data)
-            {
-                Source.Add(item);
-            } */
+                foreach (var item in data)
+                {
+                    Source.Add(item);
+                } */
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

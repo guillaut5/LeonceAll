@@ -1,8 +1,6 @@
-﻿using System;
+﻿using LeonceAll.Services;
+using System;
 using System.Threading.Tasks;
-
-using LeonceAll.Services;
-
 using Windows.ApplicationModel.Activation;
 
 namespace LeonceAll.Activation

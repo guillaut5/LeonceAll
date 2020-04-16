@@ -1,8 +1,6 @@
-﻿using System;
+﻿using LeonceAll.Helpers;
+using System;
 using System.Threading.Tasks;
-
-using LeonceAll.Helpers;
-
 using Windows.ApplicationModel.Core;
 using Windows.Storage;
 using Windows.UI.Core;

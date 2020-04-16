@@ -1,11 +1,8 @@
-﻿using System;
+﻿using LeonceAll.Helpers;
+using LeonceAll.Services;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
-
-using LeonceAll.Helpers;
-using LeonceAll.Services;
-
 using Windows.ApplicationModel;
 using Windows.Storage;
 using Windows.UI.Xaml;
@@ -19,11 +16,15 @@ namespace LeonceAll.Views
     public sealed partial class SettingsPage : Page, INotifyPropertyChanged
     {
         private ElementTheme _elementTheme = ThemeSelectorService.Theme;
+#pragma warning disable CS0414 // Le champ 'SettingsPage.applicationData' est assigné, mais sa valeur n'est jamais utilisée
         ApplicationData applicationData = null;
+#pragma warning restore CS0414 // Le champ 'SettingsPage.applicationData' est assigné, mais sa valeur n'est jamais utilisée
         ApplicationDataContainer roamingSettings_m = null;
 
 
+#pragma warning disable CS0414 // Le champ 'SettingsPage.localSettings' est assigné, mais sa valeur n'est jamais utilisée
         ApplicationDataContainer localSettings = null;
+#pragma warning restore CS0414 // Le champ 'SettingsPage.localSettings' est assigné, mais sa valeur n'est jamais utilisée
 
         const string containerName = "leonceAllSettingsContainer";
         const string LEONCEECRIT_VOCAL_KEYB = "LE_VOCAL_KEYB";

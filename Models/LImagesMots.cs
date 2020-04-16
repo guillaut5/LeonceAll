@@ -36,7 +36,7 @@ namespace LeonceAll.Models
                 ImageText = imageText.ToUpper();
             }
         }
-            
+
 
 
 
@@ -54,10 +54,10 @@ namespace LeonceAll.Models
             set => SetProperty(ref _imageSource, value);
         }
 
-      
+
 
         private bool _needsSaved = false;
-        
+
 
         public bool NeedsSaved
         {
