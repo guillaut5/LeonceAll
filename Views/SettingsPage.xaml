@@ -20,6 +20,18 @@
             <TextBlock Text="LeonceReconnait"
                        Style="{ThemeResource SubtitleTextBlockStyle}" />
             
+            <Slider AutomationProperties.Name="vertical slider"
+                    Width="100"
+                    Orientation="Horizontal"
+                    TickFrequency="1"
+                    TickPlacement="Outside"
+                    Maximum="10"
+                    Minimum="3"
+                    HorizontalAlignment="Left"
+                    Header ="Nombre de mots"
+                    Value="{Binding Source={StaticResource LeonceAppSettings},
+                                    Path=LeonceReconnaitWordCount,
+                                    Mode=TwoWay}"/>
 
             <TextBlock Text="LeonceEcrit"
                        Style="{ThemeResource SubtitleTextBlockStyle}" />

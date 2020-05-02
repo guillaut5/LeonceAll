@@ -10,6 +10,23 @@ namespace LeonceAll.Leonce
     // More details regarding storing and retrieving app data at https://docs.microsoft.com/windows/uwp/app-settings/store-and-retrieve-app-data
     public class LAppSettings : INotifyPropertyChanged
     {
+
+
+        public int LeonceReconnaitWordCount
+        {
+            get
+            {
+                return ReadSettings(nameof(LeonceReconnaitWordCount), 3);
+            }
+            set
+            {
+                SaveSettings(nameof(LeonceReconnaitWordCount), value);
+                NotifyPropertyChanged();
+            }
+        }
+
+
+
         public bool ShowClavierVocalSetting
         {
             get
@@ -22,6 +39,9 @@ namespace LeonceAll.Leonce
                 NotifyPropertyChanged();
             }
         }
+
+
+
 
         public bool ShowConsonneForteSetting
         {

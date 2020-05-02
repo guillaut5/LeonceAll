@@ -26,11 +26,11 @@ namespace LeonceAll.Views
         private int gameTotal = 10;
 #pragma warning restore CS0414 // Le champ 'LeonceMemoryPage.gameTotal' est assigné, mais sa valeur n'est jamais utilisée
         private int score = 0;
-        private int imageWordsChoices = 3;
+        private int imageWordsChoices = 5;
         private MediaElement player;
         private Boolean isEvaluating = false;
         private LPlayLetter letterPlayer_m;
-
+        private LAppSettings localSetting_m;
 
         private LImageMotReadMatching _imageSelected;
         public LImageMotReadMatching imageSelected
@@ -76,6 +76,7 @@ namespace LeonceAll.Views
 
             player = new MediaElement();
             letterPlayer_m = new LPlayLetter();
+            localSetting_m = new LAppSettings();
 
             InitializeComponent();
         }
@@ -95,7 +96,7 @@ namespace LeonceAll.Views
             wordCandidates.Clear();
             wordCandidates.Add(imageSelected);
 
-            for (int i = 1; i < imageWordsChoices; i++)
+            for (int i = 1; i < localSetting_m.LeonceReconnaitWordCount; i++)
             {
                 tmpSeclected = Images[i];
                 LImageMotReadMatching falseWordSelected = new LImageMotReadMatching(tmpSeclected.ImageSource, tmpSeclected.ImageText, false);

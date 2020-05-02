@@ -11,7 +11,7 @@
           Margin="{StaticResource MediumLeftRightMargin}">
         <Grid Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
             <Grid.RowDefinitions>
-                <RowDefinition Height="70" />
+                <RowDefinition Height="60" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
@@ -62,6 +62,7 @@
                            Stretch="UniformToFill"
                            Source="{x:Bind imageSelected.imgSrc,  Mode=OneWay}"
                            HorizontalAlignment="Center"
+                           VerticalAlignment="Top" 
                            Margin="20,20,20,20" />
 
 
@@ -69,11 +70,17 @@
                               ItemsSource="{x:Bind wordCandidates}"
                               IsItemClickEnabled="True"
                               HorizontalAlignment="Center">
-                        <GridView.ItemTemplate>
+                    <GridView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <ItemsWrapGrid Orientation="Horizontal" />
+                        </ItemsPanelTemplate>
+                    </GridView.ItemsPanel>
+                    <GridView.ItemTemplate>
+
                             <DataTemplate x:DataType="data:LImageMotReadMatching">
                                 <StackPanel Orientation="Horizontal">
-                                    <Button Height="200"
-                                            Width="350"
+                                    <Button Height="170"
+                                            Width="400"
                                             Tapped="textBoxClicked"
                                             FontWeight="Bold"
                                             Content="{x:Bind word,  Mode=OneWay}"
@@ -83,7 +90,7 @@
                                             Click="textBoxClicked">
                                     </Button>
                                     <Image  Source="{x:Bind image}"
-                                            Height="200"
+                                            Height="170"
                                             Width="350"
                                             Visibility="{x:Bind imageVisibility,  Mode=OneWay}">
                                     </Image>

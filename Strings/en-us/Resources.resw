@@ -153,9 +153,6 @@
     <value>Dictée consonnes appuyée</value>
     <comment>Active la lecture des consonnes appuyées</comment>
   </data>
-
-
-
   <data name="Settings_Theme.Text" xml:space="preserve">
     <value>Choose Theme</value>
     <comment>Choose theme text for Settings</comment>
@@ -199,5 +196,9 @@
   <data name="ExceptionEnumToBooleanConverterParameterMustBeAnEnumName" xml:space="preserve">
     <value>parameter must be an Enum name!</value>
     <comment>Parameter must be an Enum name in enum to boolean converter</comment>
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value>toto</value>
+    <comment>rara</comment>
   </data>
 </root>

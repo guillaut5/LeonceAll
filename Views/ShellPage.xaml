@@ -19,7 +19,8 @@
         SelectedItem="{x:Bind Selected, Mode=OneWay}"
         ItemInvoked="OnItemInvoked"
         IsSettingsVisible="True"
-        Background="{ThemeResource SystemControlBackgroundAltHighBrush}">
+                          AlwaysShowHeader="True"
+                          Background="{ThemeResource SystemControlBackgroundAltHighBrush}">
         <winui:NavigationView.MenuItems>
             <!--
             TODO WTS: Change the symbols for each item as appropriate for your app
