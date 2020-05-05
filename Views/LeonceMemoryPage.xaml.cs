@@ -52,8 +52,8 @@ namespace LeonceAll.Views
         public String GameProgress
         {
             get
-            {
-                return "Essai n°" + gameCount;// + " / " + gameTotal;
+            { 
+                return score + " points / " + gameCount +  " essais";
             }
             set
             {
@@ -103,6 +103,7 @@ namespace LeonceAll.Views
                 wordCandidates.Add(falseWordSelected);
             }
             wordCandidates.Shuffle();
+            await Task.Delay(1000);
             await letterPlayer_m.speachAsync(imageSelected.word);
 
 
@@ -225,6 +226,8 @@ namespace LeonceAll.Views
                     ElementSoundPlayer.State = ElementSoundPlayerState.On;
                     ElementSoundPlayer.Play(ElementSoundKind.GoBack);
                     NotifyPropertyChanged("GameProgress");
+                    NotifyPropertyChanged("ScoreActuel");
+
                     await letterPlayer_m.speachAsync(motChoisi.word);
 
                     await Task.Delay(500);

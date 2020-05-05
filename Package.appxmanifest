@@ -11,7 +11,7 @@
   <Identity
     Name="59030GuillaumeFernandez.LeonceEcrit"
     Publisher="CN=2E71D4BB-62A3-4D6C-9EA3-3D068BD89F25"
-    Version="2.0.20.0" />
+    Version="2.0.24.0" />
 
   <mp:PhoneIdentity PhoneProductId="7f268c1a-4be9-43b6-9b99-6479e1caf84d" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 

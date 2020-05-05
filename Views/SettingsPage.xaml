@@ -19,20 +19,26 @@
             x:Name="ContentArea">
             <TextBlock Text="LeonceReconnait"
                        Style="{ThemeResource SubtitleTextBlockStyle}" />
-            
-            <Slider AutomationProperties.Name="vertical slider"
-                    Width="100"
+
+            <StackPanel Orientation="Horizontal">
+                <Slider AutomationProperties.Name="vertical slider"
+                    Width="300"
                     Orientation="Horizontal"
                     TickFrequency="1"
                     TickPlacement="Outside"
                     Maximum="10"
-                    Minimum="3"
+                    Minimum="2"
                     HorizontalAlignment="Left"
                     Header ="Nombre de mots"
                     Value="{Binding Source={StaticResource LeonceAppSettings},
                                     Path=LeonceReconnaitWordCount,
                                     Mode=TwoWay}"/>
-
+                <TextBlock Text="{Binding Source={StaticResource LeonceAppSettings},
+                                    Path=LeonceReconnaitWordCount,
+                                    Mode=TwoWay}"
+                           Style="{ThemeResource SubtitleTextBlockStyle}" />
+            </StackPanel>
+            
             <TextBlock Text="LeonceEcrit"
                        Style="{ThemeResource SubtitleTextBlockStyle}" />
 
@@ -69,14 +75,8 @@
             <TextBlock x:Uid="Settings_Personalization" Style="{ThemeResource SubtitleTextBlockStyle}" />
             <StackPanel Margin="{StaticResource SmallTopBottomMargin}">
 
-            
-
-
                 <TextBlock x:Uid="Settings_Theme" />
 
-
-
-                
                 <StackPanel Margin="{StaticResource XSmallTopMargin}">
 
                    
