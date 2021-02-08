@@ -52,8 +52,8 @@ namespace LeonceAll.Views
         public String GameProgress
         {
             get
-            { 
-                return score + " points / " + gameCount +  " essais";
+            {
+                return score + " points / " + gameCount + " essais";
             }
             set
             {
@@ -77,9 +77,42 @@ namespace LeonceAll.Views
             player = new MediaElement();
             letterPlayer_m = new LPlayLetter();
             localSetting_m = new LAppSettings();
+            this.NavigationCacheMode = NavigationCacheMode.Required;
 
             InitializeComponent();
         }
+
+        protected override  void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            Images.Clear();
+            GC.Collect();
+
+        }
+
+
+
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
+        {
+            SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility =
+                   AppViewBackButtonVisibility.Collapsed;
+
+            // Remove this when replaced with XAML bindings
+            Images.Clear();
+            NavigationCacheMode = NavigationCacheMode.Required;
+
+
+            if (Images.Count == 0)
+            {
+                await GetItemsAsync();
+            }
+
+
+            prepareGame();
+            base.OnNavigatedTo(e);
+
+        }
+
+
 
 
         private void prepareGame()
@@ -111,28 +144,9 @@ namespace LeonceAll.Views
 
         }
 
-        protected override async void OnNavigatedTo(NavigationEventArgs e)
-        {
-            SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility =
-                   AppViewBackButtonVisibility.Collapsed;
-
-            // Remove this when replaced with XAML bindings
-
-            if (Images.Count == 0)
-            {
-                await GetItemsAsync();
-            }
-
-
-            prepareGame();
-            base.OnNavigatedTo(e);
-
-        }
-
-
-
         private async Task GetItemsAsync()
         {
+            Images.Clear();
             // https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.image#Windows_UI_Xaml_Controls_Image_Source
             // See "Using a stream source to show images from the Pictures library".
             // This code is modified to get images from the app folder.

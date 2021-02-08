@@ -37,6 +37,17 @@ namespace LeonceAll.Views
             localSetting_m = new LAppSettings();
             letterPlayer_m = new LPlayLetter();
             log.Trace("This is a trace message.");
+            this.NavigationCacheMode = NavigationCacheMode.Required;
+
+        }
+
+
+
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            Images.Clear();
+            GC.Collect();
+
         }
 
 
@@ -56,7 +67,7 @@ namespace LeonceAll.Views
                 await GetItemsAsync();
             }
             base.OnNavigatedTo(e);
-
+           
         }
 
 
@@ -65,7 +76,7 @@ namespace LeonceAll.Views
             // https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.image#Windows_UI_Xaml_Controls_Image_Source
             // See "Using a stream source to show images from the Pictures library".
             // This code is modified to get images from the app folder.
-
+            Images.Clear();
             // Get the app folder where the images are stored.
             StorageFolder appInstalledFolder = Package.Current.InstalledLocation;
             StorageFolder assets = await appInstalledFolder.GetFolderAsync("Assets\\img");
